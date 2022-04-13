@@ -6,11 +6,16 @@ import Container from "./Container";
 const Protected = () => {
 	const nav = useNavigate();
 
-	useEffect(() => {
-		Auth.currentAuthenticatedUser().catch(() => {
+	const redirectUserIfNotAuthenticated = async () => {
+		try {
+			await Auth.currentAuthenticatedUser();
+		} catch (err) {
 			nav("/profile"); // Redirect users that are not authenticated
-		});
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+		}
+	};
+
+	useEffect(() => {
+		redirectUserIfNotAuthenticated();
 	}, []);
 
 	return (
