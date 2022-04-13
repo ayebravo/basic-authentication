@@ -7,6 +7,7 @@ const Protected = ({ history }) => {
 		Auth.currentAuthenticatedUser().catch(() => {
 			history.push("/profile"); // Redirect users that are not authenticated
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
