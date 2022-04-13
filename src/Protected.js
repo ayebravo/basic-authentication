@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Auth } from "aws-amplify";
 import Container from "./Container";
 
-const Protected = ({ history }) => {
+const Protected = () => {
+	const nav = useNavigate();
+
 	useEffect(() => {
 		Auth.currentAuthenticatedUser().catch(() => {
-			history.push("/profile"); // Redirect users that are not authenticated
+			nav("/profile"); // Redirect users that are not authenticated
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);

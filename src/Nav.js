@@ -9,6 +9,7 @@ import {
 
 const Nav = (props) => {
 	const { current } = props;
+
 	return (
 		<div>
 			<Menu selectedKeys={[current]} mode="horizontal">
