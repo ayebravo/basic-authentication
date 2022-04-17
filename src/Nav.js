@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // { } used because I am importing a non-default export from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"; // { } used because I am importing a non-default export from "react-router-dom"
 import { Menu } from "antd";
 import {
 	HomeOutlined,
@@ -7,12 +7,17 @@ import {
 	FileProtectOutlined,
 } from "@ant-design/icons";
 
-const Nav = (props) => {
-	const { current } = props;
+const Nav = ({ current }) => {
+	const location = useLocation();
+	const splitLocation = location.pathname.split("/");
+	const key =
+		splitLocation[1] && splitLocation[1].length > 0
+			? splitLocation[1]
+			: "home";
 
 	return (
 		<div>
-			<Menu selectedKeys={[current]} mode="horizontal">
+			<Menu selectedKeys={[key]} mode="horizontal">
 				<Menu.Item key="home">
 					<Link to={"/"}>
 						<HomeOutlined />
