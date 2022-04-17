@@ -8,7 +8,7 @@ import {
 	LayoutOutlined,
 } from "@ant-design/icons";
 
-const Nav = ({ current }) => {
+const Nav = () => {
 	const location = useLocation();
 	const splitLocation = location.pathname.split("/");
 	const key =
