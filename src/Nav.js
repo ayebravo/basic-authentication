@@ -5,6 +5,7 @@ import {
 	HomeOutlined,
 	ProfileOutlined,
 	FileProtectOutlined,
+	LayoutOutlined,
 } from "@ant-design/icons";
 
 const Nav = ({ current }) => {
@@ -20,20 +21,28 @@ const Nav = ({ current }) => {
 			<Menu selectedKeys={[key]} mode="horizontal">
 				<Menu.Item key="home">
 					<Link to={"/"}>
-						<HomeOutlined />
+						<HomeOutlined style={{ paddingRight: "0.3em" }} />
 						Home
 					</Link>
 				</Menu.Item>
 				<Menu.Item key="profile">
 					<Link to="/profile">
-						<ProfileOutlined />
+						<ProfileOutlined style={{ paddingRight: "0.3em" }} />
 						Profile
 					</Link>
 				</Menu.Item>
 				<Menu.Item key="protected">
 					<Link to="/protected">
-						<FileProtectOutlined />
+						<FileProtectOutlined
+							style={{ paddingRight: "0.3em" }}
+						/>
 						Protected
+					</Link>
+				</Menu.Item>
+				<Menu.Item key="morepublic">
+					<Link to="/morepublic">
+						<LayoutOutlined style={{ paddingRight: "0.3em" }} />
+						More Public
 					</Link>
 				</Menu.Item>
 			</Menu>
